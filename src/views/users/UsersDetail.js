@@ -21,7 +21,7 @@ function UsersDetail(props) {
 
     return (
         <div class="container">
-            <div class="card">
+            <div class="card"> 
                 <div class="card-header">{user.name}</div>
                 <div class="card-body">
                     <div>{user.username}</div>
