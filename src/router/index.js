@@ -6,6 +6,8 @@ import Login from "../views/Auth/Login";
 import Contact from "../views/Contact";
 import NotFound from "../views/errors/NotFound";
 import Home from "../views/Home";
+import Index from "../views/users/Index";
+import UsersDetail from "../views/users/UsersDetail";
 
 function Router(props) {
   return (
@@ -29,6 +31,18 @@ function Router(props) {
       <Route path="/contact">
         <Navbar>
           <Contact />
+        </Navbar>
+      </Route>
+
+      <Route exact path="/users">
+        <Navbar>
+          <Index />
+        </Navbar>
+      </Route>
+
+      <Route path="/users/:identifier">
+        <Navbar>
+          <UsersDetail />
         </Navbar>
       </Route>
 
