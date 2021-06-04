@@ -22,16 +22,16 @@ function Index(props) {
 
   return (
     <div>
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           {users.map((user, index) => {
             return (
-              <div class="col-md-4" key={index}>
-                <div class="card mb-4">
-                  <div class="card-header">{user.name}</div>
-                  <div class="card-body">
-                    <a href={`http://${user.website}`} target="_blank" rel="noreferrer" class="d-block mb-2">{user.website}</a>
-                  <NavLink class="btn btn-primary" to={`/users/${user.id}`}>View Profile</NavLink>
+              <div className="col-md-4" key={index}>
+                <div className="card mb-4">
+                  <div className="card-header">{user.name}</div>
+                  <div className="card-body">
+                    <a href={`http://${user.website}`} target="_blank" rel="noreferrer" className="d-block mb-2">{user.website}</a>
+                  <NavLink className="btn btn-primary" to={`/users/${user.id}`}>View Profile</NavLink>
                   </div>
                 </div>
               </div>

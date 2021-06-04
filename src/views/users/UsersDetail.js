@@ -20,10 +20,10 @@ function UsersDetail(props) {
     }, [identifier])
 
     return (
-        <div class="container">
-            <div class="card"> 
-                <div class="card-header">{user.name}</div>
-                <div class="card-body">
+        <div className="container">
+            <div className="card"> 
+                <div className="card-header">{user.name}</div>
+                <div className="card-body">
                     <div>{user.username}</div>
                     <div>{user.website}</div>
                     <div>{user.phone}</div>

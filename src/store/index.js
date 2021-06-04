@@ -6,6 +6,14 @@ const theme = atom({
     default: 'dark'
 })
 
+const authenticated = atom({
+    key: 'authenticated',
+    default: {
+        check: false,
+        user: {name: "Luky Purdiono"}
+    }
+})
+
 const authUser = selector({
  key: 'authUser',
  get: async () => {
@@ -23,4 +31,4 @@ const authUser = selector({
  }
 })
 
-export { authUser, theme }
+export { authUser, theme, authenticated }

@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { authUser } from "../store";
+import { authenticated, authUser } from "../store";
 
 function Navbar({ children }) {
-  const {user} = useRecoilValue(authUser)
+  const auth = useRecoilValue(authenticated);
+  const { user } = useRecoilValue(authUser);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -27,9 +28,12 @@ function Navbar({ children }) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 {/* exact untuk mengescape / agar tidak terbaca sehingga navlink status tidak aktif */}
-                <NavLink exact className="nav-link" to="/">
-                  Home
-                </NavLink>
+
+                {auth.check && 
+                  <NavLink exact className="nav-link" to="/">
+                    Home
+                  </NavLink>
+                }
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/about">
@@ -52,6 +56,29 @@ function Navbar({ children }) {
                 </NavLink>
               </li>
             </ul>
+
+            {auth.check ? (
+              <ul className="navbar-nav mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <NavLink exact className="nav-link" to="/login">
+                    {auth.user.name}
+                  </NavLink>
+                </li>
+              </ul>
+            ) : (
+              <ul className="navbar-nav mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <NavLink exact className="nav-link" to="/login">
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/register">
+                    Register
+                  </NavLink>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </nav>
